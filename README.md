@@ -1,5 +1,4 @@
-# Sistema de Abertura de Chamados - Inspirado no Milvus
-
+# Sistema de Abertura de Chamados 
 Um sistema completo de abertura e gestão de chamados desenvolvido em HTML, CSS, JavaScript e PHP, inspirado na plataforma Milvus. Este sistema oferece uma interface moderna e intuitiva para abertura de chamados de suporte técnico com todos os campos essenciais para um atendimento eficiente.
 
 ## 🚀 Características Principais

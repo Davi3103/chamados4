@@ -196,8 +196,8 @@ Para habilitar notificações por e-mail, configure as constantes SMTP no `php/c
 ```php
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', 587);
-define('SMTP_USER', 'seu_email@gmail.com');
-define('SMTP_PASS', 'sua_senha_app');
+define('SMTP_USER', 'davilinares1@gmail.com');
+define('SMTP_PASS', 'D@31r09i24');
 ```
 
 ## 🔒 Segurança

@@ -1,0 +1,76 @@
+# Arquivos de configuração sensíveis
+php/config_local.php
+.env
+
+# Uploads e arquivos temporários
+uploads/*
+!uploads/.gitkeep
+temp/
+*.tmp
+
+# Logs
+*.log
+logs/
+server.log
+
+# Arquivos do sistema operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependências (se usar Composer futuramente)
+vendor/
+composer.lock
+
+# Arquivos de backup
+*.bak
+*.backup
+*.sql.backup
+
+# Cache
+cache/
+*.cache
+
+# Arquivos de sessão PHP
+sessions/
+
+# Arquivos de erro
+error.log
+php_errors.log
+
+# Arquivos de configuração do servidor
+.htaccess.backup
+nginx.conf.backup
+
+# Arquivos de teste
+test_uploads/
+phpunit.xml
+.phpunit.result.cache
+
+# Arquivos de documentação temporários
+docs/build/
+*.pdf.tmp
+
+# Arquivos de banco de dados locais
+*.sqlite
+*.db
+
+# Arquivos de configuração do Docker (se usar futuramente)
+docker-compose.override.yml
+.dockerignore
+
+# Arquivos de monitoramento
+monitoring/
+stats/
+

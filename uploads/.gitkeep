@@ -1,0 +1,4 @@
+# Este arquivo mantém a pasta uploads no controle de versão
+# A pasta uploads é necessária para o funcionamento do sistema
+# mas os arquivos enviados não devem ser versionados
+

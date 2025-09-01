@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Abertura de Chamados - Milvus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-headset"></i>
+                <h1>Sistema de Chamados</h1>
+            </div>
+            <p class="subtitle">Plataforma de Abertura e Gestão de Chamados</p>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2><i class="fas fa-ticket-alt"></i> Abrir Novo Chamado</h2>
+                
+                <form id="chamadoForm" class="chamado-form" action="php/processar_chamado.php" method="POST" enctype="multipart/form-data">
+                    <!-- Informações do Solicitante -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Informações do Solicitante</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="empresa">Empresa/Departamento</label>
+                                <input type="text" id="empresa" name="empresa">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cnpj">CNPJ</label>
+                                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informações do Chamado -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-clipboard-list"></i> Informações do Chamado</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="assunto">Assunto *</label>
+                                <input type="text" id="assunto" name="assunto" required placeholder="Descreva brevemente o problema ou solicitação">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="categoria">Categoria *</label>
+                                <select id="categoria" name="categoria" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="hardware">Hardware</option>
+                                    <option value="software">Software</option>
+                                    <option value="rede">Rede/Conectividade</option>
+                                    <option value="email">E-mail</option>
+                                    <option value="impressora">Impressora</option>
+                                    <option value="acesso">Acesso/Permissões</option>
+                                    <option value="backup">Backup/Recuperação</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prioridade">Prioridade *</label>
+                                <select id="prioridade" name="prioridade" required>
+                                    <option value="">Selecione a prioridade</option>
+                                    <option value="baixa">Baixa</option>
+                                    <option value="media">Média</option>
+                                    <option value="alta">Alta</option>
+                                    <option value="critica">Crítica</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgencia">Urgência</label>
+                                <select id="urgencia" name="urgencia">
+                                    <option value="">Selecione a urgência</option>
+                                    <option value="baixa">Baixa</option>
+                                    <option value="media">Média</option>
+                                    <option value="alta">Alta</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="terminal">Filial - Colocar o nome da Unidade</label>
+                                <input type="text" id="terminal" name="terminal" placeholder="Informe o terminal onde está ocorrendo o problema">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="localizacao">Setor</label>
+                                <input type="text" id="localizacao" name="localizacao" placeholder="ADM, Compras, Estoque, Financeiro,Rh">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="descricao">Descrição Detalhada *</label>
+                            <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva detalhadamente o problema ou solicitação. Quanto mais informações, mais eficiente será o atendimento."></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data_ocorrencia">Data da Ocorrência</label>
+                                <input type="date" id="data_ocorrencia" name="data_ocorrencia">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="hora_ocorrencia">Hora da Ocorrência</label>
+                                <input type="time" id="hora_ocorrencia" name="hora_ocorrencia">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anexos -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-paperclip"></i> Anexos (Opcional)</h3>
+                        
+                        <div class="form-group full-width">
+                            <label for="anexos">Evidências (Screenshots, fotos, documentos)</label>
+                            <div class="file-upload-area" id="fileUploadArea">
+                                <input type="file" id="anexos" name="anexos[]" multiple accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt">
+                                <div class="upload-text">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Clique aqui ou arraste arquivos para fazer upload</p>
+                                    <small>Formatos aceitos: JPG, PNG, PDF, DOC, TXT (máx. 10MB por arquivo)</small>
+                                </div>
+                            </div>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Informações Adicionais -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-info-circle"></i> Informações Adicionais</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="url_relacionada">URL Relacionada</label>
+                                <input type="url" id="url_relacionada" name="url_relacionada" placeholder="https://exemplo.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="impacto">Impacto no Negócio</label>
+                                <select id="impacto" name="impacto">
+                                    <option value="">Selecione o impacto</option>
+                                    <option value="baixo">Baixo</option>
+                                    <option value="medio">Médio</option>
+                                    <option value="alto">Alto</option>
+                                    <option value="critico">Crítico</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="observacoes">Observações Adicionais</label>
+                            <textarea id="observacoes" name="observacoes" rows="3" placeholder="Informações complementares que possam ajudar na resolução"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Ação -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="limparFormulario()">
+                            <i class="fas fa-eraser"></i> Limpar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Abrir Chamado
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Painel de Status -->
+            <div class="status-panel">
+                <h3><i class="fas fa-chart-line"></i> Status dos Chamados</h3>
+                <div class="status-cards">
+                    <div class="status-card">
+                        <div class="status-icon abertos">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="status-info">
+                            <span class="status-number" id="chamadosAbertos">0</span>
+                            <span class="status-label">Abertos</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-icon andamento">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="status-info">
+                            <span class="status-number" id="chamadosAndamento">0</span>
+                            <span class="status-label">Em Andamento</span>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-icon resolvidos">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="status-info">
+                            <span class="status-number" id="chamadosResolvidos">0</span>
+                            <span class="status-label">Resolvidos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <h4>Ações Rápidas</h4>
+                    <button class="quick-btn" onclick="consultarChamados()">
+                        <i class="fas fa-search"></i> Consultar Chamados
+                    </button>
+                    <button class="quick-btn" onclick="acompanharChamado()">
+                        <i class="fas fa-eye"></i> Acompanhar Chamado
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Sistema de Chamados - Criado por Davi Linares.</p>
+        </footer>
+    </div>
+
+    <!-- Modal de Sucesso -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Chamado Criado com Sucesso!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Seu chamado foi registrado com o número: <strong id="numeroChamado"></strong></p>
+                <p>Você receberá atualizações por e-mail.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="fecharModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
